@@ -1,6 +1,29 @@
- <!--title-->
- <h1> {{article.title}}</h1>
+<!--title-->
+<h1>{{ article.title }}</h1>
 
- <!--introduction-->
- <p [innerHtml] = "article.definition">
- </p>
+<!--introduction-->
+<p [innerHtml]="article.definition"></p>
+
+<!--table of contents-->
+<h4>Inhaltsverzeichnis</h4>
+<ol class="content-table">
+  <li *ngFor="let section of article.sections">
+    <a [href]="getId(section.title)">{{ section.title }}</a>
+    <ol>
+      <li *ngFor="let subsection of section.subsections">
+        <a [href]="getId(subsection.title)">{{ subsection.title }}</a>
+      </li>
+    </ol>
+  </li>
+</ol>
+
+<!--text sections-->
+
+<div *ngFor="let section of article.sections">
+  <h2 [id]="section.title">{{ section.title }}</h2>
+  <p [innerHtml]="section.content"></p>
+  <div *ngFor="let subsection of section.subsections">
+    <h3 [id]="subsection.title">{{ subsection.title }}</h3>
+    <p [innerHtml]="subsection.content"></p>
+  </div>
+</div>
