@@ -7,9 +7,11 @@ import { IArticle } from './interfaces/article.interface';
   styleUrls: ['./app.component.sass'],
 })
 export class AppComponent {
-getId(title: string) {
-return "#" + title;
-}
+  constructor() {}
+
+  public getId(title: string): string {
+    return '#' + title;
+  }
   article: IArticle = {
     title: 'Digitale Gesundheitsanwendung',
     definition: `Als <span class="bold">Digitale Gesundheitsanwendungen</span> (abgekürzt 
@@ -88,7 +90,8 @@ return "#" + title;
         subsections: [],
       },
       {
-        title: 'Dauerhaft in das DiGA-Verzeichnis aufgenommene Anwendungen und Indikationen',
+        title:
+          'Dauerhaft in das DiGA-Verzeichnis aufgenommene Anwendungen und Indikationen',
         content: '',
         subsections: [],
       },
@@ -103,14 +106,14 @@ return "#" + title;
         subsections: [
           {
             title: 'Preisgestaltung von DiGA',
-           content: '',
+            content: '',
           },
           {
             title: 'Verordnung von DiGA in der GKV',
-           content: '',
+            content: '',
           },
         ],
-      }
+      },
     ],
   };
 }
